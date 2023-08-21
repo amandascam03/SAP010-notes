@@ -2,62 +2,61 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del Proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de Aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Consideraciones técnicas](#6-consideraciones-técnicas)
-* [7. Hacker Edition](#7-hacker-edition)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+* [1. Prefácio](#1-prefácio)
+* [2. Resumo do projeto](#2-resumo-do-projeto)
+* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
+* [4. Considerações gerais](#4-considerações-gerais)
+* [5. Critérios de aceitação mínimos do projeto](#5-criterios-de-aceitação-mínimos-do-projeto)
+* [6. Considerações técnicas](#6-considerações-técnicas)
+* [7. Hacker edition](#7-hacker-edition)
+* [8. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
 
 ***
 
-## 1. Preámbulo
+## 1. Prefácio
 
-Hoy en día no es práctico imaginar el desarrollo web sin HTML, CSS y JavaScript,
-esta última es el alma del desarrollo de aplicaciones web.
-[React](https://reactjs.org/), [Angular](https://angular.io/) y [Vue](https://vuejs.org/)
-son algunos de los _frameworks_ y _librerías_ de JavaScript más utilizados por
-lxs desarrolladorxs alrededor del mundo, y hay una razón para eso.
-En el contexto del navegador, [_mantener la interfaz sincronizada con el estado
-es difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
-Al elegir un _framework_ o _librería_ para nuestra interfaz, nos apoyamos en una
-serie de convenciones e implementaciones _probadas_ y _documentadas_ para
-resolver un problema común a toda interfaz web. Esto nos permite concentrarnos
-mejor (dedicar más tiempo) en las características _específicas_ de
-nuestra aplicación.
+[React](https://reactjs.org/), [Angular](https://angular.io/) e
+[Vue](https://vuejs.org/) são alguns dos _frameworks_ e _bibliotecas_ de
+JavaScript mais usados na área de desenvolvimento ao redor do mundo e existe uma
+razão para isso. No contexto do navegador, [_manter a interface sincronizada com
+o estado é
+difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
+Ao eleger um _framework_ ou _biblioteca_ para nossa interface, nos apoiamos em
+uma série de convenções e implementações _testadas_ e _documentadas_ para
+resolver um problema comum a toda interface web. Isto nos permite concentrar
+melhor (dedicar mais tempo) nas características _específicas_ de nossa
+aplicação.
 
-Cuando elegimos una de estas tecnologías no solo importamos un pedacito de
-código para reusar (lo cual es un gran valor per se), si no que adoptamos una
-**arquitectura**, una serie de **principios de diseño**, un **paradigma**, unas
-**abstracciones**, un **vocabulario**, una **comunidad**, etc.
+Quando escolhemos uma destas tecnologias não só importamos um pedaço de código
+para reusar (o qual já é um grande valor por si só), mas também adotamos uma
+**arquitetura**, uma série de **princípios de design**, um paradigma, algumas
+**abstrações**, um **vocabulário**, uma **comunidade**, etc...
 
-Como desarrolladora front-end, estos kits de desarrollo pueden resultarte
-de gran ayuda para implementar rápidamente características de los proyectos en
-los que trabajes.
+Como desenvolvedora Front-End, estes kits de desenvolvimento podem resultar em
+uma grande ajuda para implementar rapidamente _features_ dos projetos em que
+você for trabalhar.
 
-## 2. Resumen del Proyecto
+## 2. Resumo do projeto
 
-En este proyecto construiremos una aplicación para tomar notas, que nos permita
-crear, editar, eliminar y consultarlas en cualquier momento.
+Neste projeto construiremos uma aplicação para tomar notas, que nos permita
+criar, editar, eliminar e consulta-las em qualquer momento.
 
-No existe día que no tomemos notas, siempre necesitamos apuntar alguna
-dirección, número telefónico, notas de alguna reunión o guardar nuestras URLs
-favoritas para poder consultarlas más tarde. Muchas veces para esta actividad
-utilizamos libretas o agendas que terminan siendo olvidadas, o anotamos de
-manera dispersa de tal manera que perdemos de vista la prioridad y el propósito
-de la nota lo cual da como resultado una nota perdida.
+Não existe dia em que não tomemos notas, sempre necessitamos guardar alguma
+localização, número de telefone, notas de alguma reunião ou salvar nossas URLs
+favoritas para consultar mais tarde. Muitas vezes para esta atividade
+utilizamos cadernos ou agendas que acabam sendo esquecidas, ou anotamos de
+manera dispersa de tal manera que perdemos de vista a prioridade e o propósito
+da nota, no que resulta em uma nota perdida.
 
 ![Shows CRUD functionalities](https://raw.githubusercontent.com/florenciasilva/lab-notes/master/demo-crud.gif?token=AGJBHNTVAQRWOVF2IGMP6FK5NVFAS)
 
-El objetivo principal de este proyecto es aprender a construir una _interfaz
-web_ usando el _framework_ elegido. Todos estos frameworks de Frontend atacan el
-mismo problema: **cómo mantener la interfaz y el estado sincronizados**. Así que
-esta experiencia espera familiarizarte con el concepto de _estado de pantalla_,
-y cómo cada cambio sobre el estado se va a ir reflejando en la interfaz (por
-ejemplo, cada vez que agregamos una _nota_, la interfaz debe actualizar la lista
-de notas).
+O objetivo principal é aprender a construir uma _interface web_ usando o
+_framework_ escolhido (React). Esses framework front-end ataca
+o seguinte problema: **como manter a interface e estado sincronizados**.
+Portanto, esta experiência espera familiarizá-la com o conceito de _estado da
+tela_, e como cada mudança no estado vai refletir na interface (por exemplo,
+cada vez que adicionamos uma _nota_, a interface deve
+atualizar a lista notas).
 
 ## 3. Objetivos de Aprendizaje
 
@@ -430,141 +429,148 @@ Reflita e depois enumere os objetivos que quer alcançar e aplique no seu projet
   * [Interligações de Classe e Estilo - Documentação oficial](https://br.vuejs.org/v2/guide/class-and-style.html)
 </p></details>
 
-## 4. Consideraciones generales
+## 4. Considerações gerais
 
-* Este proyecto se debe "resolver" de forma individual.
+* Este projeto deve ser feito de forma individual.
 
-* El rango de tiempo estimado para completar el proyecto es de 3 a 5 Sprints.
+* A duração estimada do projeto é de 4 sprints, com a duração de uma
+  semana cada uma.
 
-* Trabaja en una historia hasta terminarla antes de pasar a la siguiente.
+* Trabalhe integralmente uma história de usuário antes de passar para a próxima.
 
-* La aplicación debe ser un _Single Page App_. Las notas serán realizadas desde
-una _tablet_, pero **no debe ser una app nativa**, sino una web app que sea
-**responsive** y pueda funcionar **offline**.
+* O aplicativo deve ser um _Single Page App_. Os pedidos serão enviados por meio
+de um _tablet_, mas **não queremos um aplicativo nativo**, mas sim um aplicativo
+Web que seja **responsivo** e possa funcionar **offline**.
 
-* Necesitamos pensar bien en el aspecto UX de quienes van a tomar las notas, el
-tamaño y aspecto de los botones, la visibilidad del estado actual del pedido,
+* Necessitamos pensar bem no aspecto UX de quem vai tomar as notas, o
+tamanho e aspecto dos botões, a visibilidade do estado atual da nota,
 etc.
 
-* Implementar pruebas unitarias de tus componentes.
+* Implementar testes unitários dos componentes.
 
-## 5. Criterios de aceptación mínimos del proyecto
+## 5. Critérios mínimos de aceitação do projeto
 
-### Definición del producto
+### Definição do produto
 
-La [_Product Owner_](https://youtu.be/r2hU7MVIzxs) nos presenta este _backlog_
-que es el resultado de su trabajo colaborativo.
-
-***
-
-### Historias de usuaria
-
-#### [Historia de usuaria 1] Debería poder crear cuenta, iniciar y cerrar sesión
-
-Yo como usuaria debo poder crear una cuenta y autenticarme usando login de
-Google para acceder a mis notas.
+O [_Product Owner_](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou
+este _backlog_ que é o resultado do seu trabalho colaborativo
 
 ***
 
-#### [Historia de usuaria 2] Debería poder tomar nota
+### Histórias de usuário
 
-Yo como usuaria quiero tomar nota para no depender de mi mala
-memoria y tener presente en todo momento los apuntes ó cosas importantes que
-antes escribía en papel.
+#### [História de usuário 1] Usuário deve poder criar conta, iniciar e encerrar a sessão
+
+Eu como usuária quero poder criar uma conta e entrar no sistema usando login pelo
+Google para acessar minhas anotações.
 
 ***
 
-#### [Historia de usuaria 3] Debería poder ver las notas
+#### [História de usuário 2] Usuário deve poder tomar nota
 
-Yo como usuaria quiero leer mis notas para recordar lo que escribí
+Eu como usuária quero tomar nota para não depender de minha
+memória e ter acesso as anotações em todo momento, das coisas importantes que
+antes escrevia no papel.
+
+***
+
+#### [História de usuário 3] Usuário deve poder ver as notas
+
+Eu como usuária quero ler todas as notas para lembrar do que escrevi
 antes.
 
 ***
 
-#### [Historia de usuaria 4] Debería poder editar las notas
+#### [História de usuário 4] Usuário deve poder editar as notas
 
-Yo como usuaria quiero editar notas para poder modificar lo que
-escribí antes.
-
-***
-
-#### [Historia de usuaria 5] Debería poder borrar notas
-
-Yo como usuaria quiero borrar una nota para no volver a verla.
+Eu como usuária quero editar as notas para  modificar o que
+escrevi antes.
 
 ***
 
-##### Criterios de aceptación
+#### [História de usuário 4] Usuário deve poder editar as notas
 
-Lo que debe ocurrir para que se satisfagan las necesidades del usuario
+Eu como usuária quero editar as notas para  modificar o que
+escrevi antes.
 
-* Anotar un título a mi nota
-* Agregar el contenido de mi nota.
-* Ver todas mis notas.
-* Ver la última modificación de la nota.
-* Modificar las notas.
+***
+
+#### [História de usuário 5] Usuário deve pode apagar notas
+
+Eu como usuária quero apagar uma nota para não a ver novamente.
+
+***
+
+##### Critérios de aceitação
+
+O que deve acontecer para satisfazer as necessidades do usuário?
+
+* Anotar um título em minha nota
+* Adicionar o conteúdo da nota.
+* Ver todas as minhas notas.
+* Modificar as notas e ver a última modificação feita.
 * Eliminar notas.
-* Se ve y funciona bien en una _Tablet_
+* Funciona bem em um _Tablet_
 
-##### Definición de terminado
+##### Definição de pronto
 
-Lo acordado que debe ocurrir para decir que la historia está terminada.
+* Você deve ter recebido _code review_ de pelo menos uma parceira.
+* Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+* Você deu deploy de seu aplicativo e marcou sua versão ([`git tag`](https://youtu.be/5DkX3HFgklM)).
 
-* Debes haber recibido _code review_ de al menos una compañera.
-* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
-* Desplegaste tu aplicación y has etiquetado tu versión ([`git tag`](https://youtu.be/5DkX3HFgklM)).
+## 6. Considerações técnicas
 
-## 6. Consideraciones técnicas
+O projeto deve conter os seguintes arquivos base de configuração,
+ainda que não serão os únicos arquivos que terão que criar.
 
-El proyecto deberá contener los siguientes archivos base de configuración,
-aunque no serán los únicos archivos que quizás tendrás que crear.
+* `README.md` é onde se encontra a descrição do projeto e os elementos
+  relevantes de seu projeto.
+* `.editorconfig` com a configuração para o editor de texto. 
+* `.gitignore` para ignorar o `node_modules` e outras pastas que não devem
+  ser incluídas no controle de versão (`git`).
+* `.eslintrc` este arquivo contém regras para formatar o 
+código (configuração para o linter).
+Além de ser uma boa prática ter configurado um linter.
 
-* `README.md` es donde se encontrará la descripción del proyecto y elementos
-  relevantes de tu proyecto.
-* `.editorconfig` este archivo contiene la configuración para editores de texto.
-* `.gitignore`  este archivo contiene reglas para ignorar `node_modules` u otras
-  carpetas que no deban incluirse en control de versiones (`git`).
-* `.eslintrc` este archivo contiene reglas para formatear el código además de
-  ser una buena practica tener configurado un linter.
+Este projeto será uma Web App con **um
+framework de JavaScript** (`React`, `Angular` o `Vue`) e **Firebase** para armazenar suas notas.
 
-Para este proyecto necesitas crear una Web App con **una librería o
-framework de JavaScript** (`React`, `Angular` o `Vue`) y **Firebase**.
-
-Para este proyecto tendrás que manejar _vistas_. Esto significa que cada sección
-tendrá su propia URL, la cual indica que _vista_ o _componente_ será mostrado en
-pantalla. Para ello necesitaremos investigar acerca de _la API para el manejo de
-rutas (en la librería o framework que elijas)_ y el concepto de _Single Page
-Application_.
+Para este projeto, você terá que lidar com _views_. Isso significa que cada seção
+terá sua própria URL, que indica qual _view_ ou _component_ será exibido em
+tela. Para isso precisaremos investigar sobre _a API para manipulação
+rotas (na biblioteca ou framework de sua escolha)_ e o conceito de _Single Page
+Aplication_.
 
 ## 7. Hacker Edition
 
-Una vez que hayas terminado las funcionalidades base del proyecto, puedes
-pasarte a esta sección.
+Se você **terminou** as funcionalidades base do projeto, pode
+passar para esta parte.
 
-* Si la usuaria empieza a escribir una nota y por alguna razón la pestaña del
-  navegador se cierra, cuando la vuelva a abrir, la nota debería mostrarse como
-  estaba.
-* Subir imágenes.
-* Ver el número de veces que he editado mi nota.
-* Consumo de API/s (Google Maps, Spotify, Pinterest, etc.)
+* Se a usuária começa a escrever uma nota e por alguma razão a aba do
+  navegador se fecha, a nota deve mostrar como
+  estava, quando abrir novamente
+* Subir imagens.
+* Ver o número de vezes que a nota foi editada.
+* Consumir API/s (Google Maps, Spotify, Pinterest, etc.)
 * Progressive Web App (PWA).
-* Puedes crear categorías y clasificar por tipo de nota.
-* Guardar el color de la nota.
-* Crear una nota como publica.
+* Criar categorias e classificar por tipo de nota.
+* Guardar a color da nota.
+* Criar uma nota publica.
 
-## 8. Pistas, tips y lecturas complementarias
+## 8. Guias, dicas e leituras complementares
 
 Súmate al canal de Slack
 [#project-lab-notes](https://claseslaboratoria.slack.com/archives/C03SBNSE7HQ)
 para conversar y pedir ayuda del proyecto.
 
-### Frameworks / libraries
+### Frameworks / bibliotecas
 
 * [React](https://reactjs.org/)
 * [Angular](https://angular.io/)
 * [Vue](https://es.vuejs.org/index.html)
 
-### Herramientas
+### Ferramentas
 
 * [npm-scripts](https://docs.npmjs.com/misc/scripts)
 * [Babel](https://babeljs.io/)
@@ -572,16 +578,16 @@ para conversar y pedir ayuda del proyecto.
 
 ### PWA
 
-* [Tu primera Progressive Web App - Google developers](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=es)
+* [Seu primeiro Progressive Web App - Google developers](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=es)
 * [Progressive Web Apps - codigofacilito.com](https://codigofacilito.com/articulos/progressive-apps)
+* [Usando Service Workers - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 * [offlinefirst.org](http://offlinefirst.org/)
-* [Usando Service Workers - MDN](https://developer.mozilla.org/es/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-* [Cómo habilitar datos sin conexión - Firebase Docs](https://firebase.google.com/docs/firestore/manage-data/enable-offline?hl=es-419)
+* [Como habilitar dados sem conexão - Firebase Docs](https://firebase.google.com/docs/firestore/manage-data/enable-offline)
 
-### Otros recursos
+### Outros recursos
 
 * [create-react-app](https://create-react-app.dev/docs/getting-started)
 * [npm-scripts](https://docs.npmjs.com/misc/scripts)
-* [deploy con gh-pages](https://medium.com/the-andela-way/how-to-deploy-your-react-application-to-github-pages-in-less-than-5-minutes-8c5f665a2d2a)
+* [deploy com gh-pages](https://medium.com/the-andela-way/how-to-deploy-your-react-application-to-github-pages-in-less-than-5-minutes-8c5f665a2d2a)
 * [Usando Service Workers - MDN](https://developer.mozilla.org/es/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 * [What is a Single Page Application](https://medium.com/@NeotericEU/single-page-application-vs-multiple-page-application-2591588efe58)
