@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&family=Open+Sans:wght@300&family=Poppins&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Open+Sans:wght@300&family=Poppins&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Nunito', sans-serif;
 }
 
-body {
-    font-family: 'Nunito Sans', sans-serif;
+.LoginPage {
     background: #202020;
-    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 h1 {
@@ -19,7 +19,7 @@ p {
     font-size: 18px;
 }
 
-h1, p {
+.Login-header h1, p {
     font-weight: 200;
     color: #FFFF;
 }
@@ -31,12 +31,12 @@ h1, p {
     flex-direction: column;
 }
 
-header {
+.Login-header {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 20px;
+    padding-top: 20px;
     gap: 5px;
 }
 
@@ -69,4 +69,54 @@ a {
     font-weight: 400;
     position: absolute;
 
+}
+
+/* css da home */
+
+.HomePage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Home-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.UserNotes {
+    color: black;
+    font-weight: bold;
+    padding: 43px 20px;
+}
+
+.logoutBtn {
+    background-image: url("./assets/Sign-out.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    border: none;
+}
+
+.Add {
+    height: 70px;
+    width: 70px;
+    align-self: flex-end;
+    margin: 0 30px 30px 0;
+    border-radius: 50%;
+    background:  #FFD100;
+    border: none;
+    background-image: url("./assets/Vector.png");
+    background-repeat: no-repeat;
+    background-position: 11px 12px;
+}
+
+#divNota {
+    color: black;
 }

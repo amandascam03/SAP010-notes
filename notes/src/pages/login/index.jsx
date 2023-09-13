@@ -13,8 +13,8 @@ export default function LoginPage() {
 
     if (!signed) {
         return (
-            <>
-                <header className="App-header">
+            <div className="LoginPage">
+                <header className="Login-header">
                     <h1>Lab Notes</h1>
                     <p>Tome suas notas de uma forma simples e objetiva</p>
                 </header>
@@ -29,9 +29,8 @@ export default function LoginPage() {
                 <a href="https://storyset.com/work">
                     Work illustrations by Storyset
                 </a>
-            </>
+            </div>
         );
-    } else {
-        return <Navigate to="/home" />;
     }
+        return <Navigate to="/home" />;
 }
