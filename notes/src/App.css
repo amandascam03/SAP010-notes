@@ -6,20 +6,22 @@
     font-family: 'Nunito', sans-serif;
 }
 
+/* css da tela de login */
+
 .LoginPage {
     background: #202020;
     min-height: 100vh;
 }
 
-h1 {
+.LoginPage h1 {
     font-size: 40px;
 }
 
-p {
+.LoginPage p {
     font-size: 18px;
 }
 
-.Login-header h1, p {
+.Login-header h1, .Login-header p {
     font-weight: 200;
     color: #FFFF;
 }
@@ -104,6 +106,30 @@ a {
     border: none;
 }
 
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+article {
+    display: flex;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFD100;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+article > p {
+    text-align: center;
+}
+
 .Add {
     height: 70px;
     width: 70px;
@@ -117,6 +143,5 @@ a {
     background-position: 11px 12px;
 }
 
-#divNota {
-    color: black;
-}
+/* css da nota */
+

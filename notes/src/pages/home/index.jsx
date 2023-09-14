@@ -18,6 +18,12 @@ export default function HomePage() {
                     onClick={() => signOut()}
                 ></button>
             </header>
+            <section>
+                <article>
+                <h1>Título</h1>
+                <p>Fazer compras</p>
+                </article>
+            </section>
             <div id="nota"></div>
             <button
                 className="Add"

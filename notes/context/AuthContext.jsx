@@ -11,12 +11,15 @@ export default function AuthGoogleProvider({ children }) {
 
     const [user, setUser] = useState(null);
 
+
+
     useEffect(() => {
         const loadStorageAuth = () => {
             const sessionToken = sessionStorage.getItem("@AuthFirebase:token");
             const sessionUser = sessionStorage.getItem("@AuthFirebase:user");
             if (sessionToken && sessionUser) {
                 setUser(sessionUser);
+                console.log(sessionUser)
             }
         };
         loadStorageAuth();
@@ -27,10 +30,14 @@ export default function AuthGoogleProvider({ children }) {
         .then((result) => {
           const credential = GoogleAuthProvider.credentialFromResult(result);
           const token = credential.accessToken;
-          const user = result.user;
+          const user = JSON.stringify(result.user);
           setUser(user);
           sessionStorage.setItem("@AuthFirebase:token", token);
-          sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
+          sessionStorage.setItem("@AuthFirebase:user", user);
+        //   const user = result.user;
+        //   setUser(JSON.stringify(user));
+        //   sessionStorage.setItem("@AuthFirebase:token", token);
+        //   sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
         }).catch((error) => {
           const errorCode = error.code;
           console.log(errorCode);
