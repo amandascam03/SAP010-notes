@@ -8,7 +8,7 @@ import LoginPage from "../login";
 import HomePage from "../home";
 import { AuthGoogleContext } from "../../../context/AuthContext";
 import { useContext } from "react";
-import Note from "../notemaker/note";
+import NoteMaker from "../notemaker/note";
 
 function PrivateRoute({children}) {
     const { signed } = useContext(AuthGoogleContext);
@@ -21,7 +21,7 @@ export default function AppRoutes() {
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
-                <Route path="/note" element={<PrivateRoute><Note /></PrivateRoute>} />
+                <Route path="/note" element={<PrivateRoute><NoteMaker /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     );

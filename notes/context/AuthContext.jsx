@@ -19,7 +19,6 @@ export default function AuthGoogleProvider({ children }) {
             const sessionUser = sessionStorage.getItem("@AuthFirebase:user");
             if (sessionToken && sessionUser) {
                 setUser(sessionUser);
-                console.log(sessionUser)
             }
         };
         loadStorageAuth();
