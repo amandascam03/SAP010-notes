@@ -9,14 +9,15 @@ export default function NoteMaker() {
 
     useEffect(() => {
         setTitle(inputTitle);
-    }, [inputTitle]);
+        setNewNote(inputNote);
+    }, [inputTitle, inputNote]);
 
     return (
         <div>
+            <h1 className="Create-title">{title}</h1>
             <input
                 type="text"
-                placeholder="título"
-                value={inputTitle}
+                placeholder="Título"
                 onChange={(e) => setinputTitle(e.target.value)}
             />
             <button
@@ -27,13 +28,15 @@ export default function NoteMaker() {
                 Mudar título
             </button>
 
-            <h1></h1>
+            <h1 className="Create-note">{newNote}</h1>
             <input
                 type="text"
-                placeholder="nova nota"
+                placeholder="Nota"
                 onChange={(e) => setInputNote(e.target.value)}
             />
-            <button onClick={() => setNewNote(inputNote)}>Mudar conteúdo</button>
+            <button onClick={() => setNewNote(inputNote)}>
+                Mudar conteúdo
+            </button>
             <button onClick={() => addNote(title, newNote)}>Salvar nota</button>
         </div>
     );

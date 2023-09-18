@@ -4,11 +4,11 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import LoginPage from "../login";
-import HomePage from "../home";
+import LoginPage from "../login/Login";
+import HomePage from "../home/Home";
 import { AuthGoogleContext } from "../../../context/AuthContext";
 import { useContext } from "react";
-import NoteMaker from "../notemaker/note";
+import NoteMaker from "../notemaker/New-note";
 
 function PrivateRoute({children}) {
     const { signed } = useContext(AuthGoogleContext);
