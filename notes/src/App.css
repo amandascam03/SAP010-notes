@@ -117,30 +117,25 @@ section {
     box-sizing: border-box;
 }
 
-#notas {
+.notas {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-article {
+.article {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffd100;
+    background-color: #FFEE32;
     box-sizing: border-box;
     flex-direction: column;
     margin-bottom: 20px;
     min-width: 600px;
 }
 
-article > p {
-    text-align: center;
-}
-
-article > h1 {
-    text-align: center;
+.article > p {
     font-size: larger;
 }
 

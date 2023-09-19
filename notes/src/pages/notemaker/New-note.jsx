@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { addNote } from "../../lib/firebase-config";
+import { addDoc, collection } from "firebase/firestore";
+import { auth, db } from "../../lib/firebase-config";
 
 export default function NoteMaker() {
     const [title, setTitle] = useState("Título");
@@ -11,6 +12,22 @@ export default function NoteMaker() {
         setTitle(inputTitle);
         setNewNote(inputNote);
     }, [inputTitle, inputNote]);
+
+    async function addNote(titulo, conteudo, uid) {
+        try {
+            const docRef = await addDoc(collection(db, "notes"), {
+                titulo,
+                conteudo,
+                uid
+            });
+    
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
+
+    const userUid = auth.currentUser.uid;
 
     return (
         <div>
@@ -37,7 +54,7 @@ export default function NoteMaker() {
             <button onClick={() => setNewNote(inputNote)}>
                 Mudar conteúdo
             </button>
-            <button onClick={() => addNote(title, newNote)}>Salvar nota</button>
+            <button onClick={() => addNote(title, newNote, userUid)}>Salvar nota</button>
         </div>
     );
 }
