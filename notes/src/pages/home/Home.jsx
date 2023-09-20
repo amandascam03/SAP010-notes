@@ -6,8 +6,8 @@ import { auth, db } from "../../lib/firebase-config";
 
 export default function HomePage() {
     const { user, signOut } = useContext(AuthGoogleContext);
-
     const [notes, setNotes] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (authObj) => {
@@ -38,13 +38,6 @@ export default function HomePage() {
 
     const userSigned = JSON.parse(user);
 
-    const navigate = useNavigate();
-
-    function clicou() {
-        alert("Você clicou na nota de id: " + notes[0].id)
-        console.log("Você clicou na nota de id: ", notes[0].id)
-    }
-
     return (
         <div className="HomePage">
             <header className="Home-header">
@@ -56,16 +49,16 @@ export default function HomePage() {
             </header>
             <div className="notas">
                 {notes.map((note) => (
-                    <div key={note.id} className="article" onClick={clicou}>
+                    <div key={note.id} className="article">
                         <h1>{note.titulo}</h1>
                         <p>{note.conteudo}</p>
                     </div>
                 ))}
             </div>
             <button
-                className="Add"
+                className="addBtn"
                 title="Add"
-                onClick={() => navigate("/note")}
+                onClick={() => navigate("/new-note")}
             ></button>
         </div>
     );

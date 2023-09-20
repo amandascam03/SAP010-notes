@@ -21,7 +21,7 @@ export default function AppRoutes() {
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
-                <Route path="/note" element={<PrivateRoute><NoteMaker /></PrivateRoute>} />
+                <Route path="/new-note" element={<PrivateRoute><NoteMaker /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     );
