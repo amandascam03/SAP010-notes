@@ -40,6 +40,11 @@ export default function HomePage() {
 
     const navigate = useNavigate();
 
+    function clicou() {
+        alert("Você clicou na nota de id: " + notes[0].id)
+        console.log("Você clicou na nota de id: ", notes[0].id)
+    }
+
     return (
         <div className="HomePage">
             <header className="Home-header">
@@ -51,7 +56,7 @@ export default function HomePage() {
             </header>
             <div className="notas">
                 {notes.map((note) => (
-                    <div key={note.id} className="article">
+                    <div key={note.id} className="article" onClick={clicou}>
                         <h1>{note.titulo}</h1>
                         <p>{note.conteudo}</p>
                     </div>
