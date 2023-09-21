@@ -1,0 +1,42 @@
+.bgModal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.624);
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    height: 600px;
+    min-width: 400px;
+    padding: 1rem;
+    transform: translate(-50%, -50%);
+}
+
+.titleModal {
+    font-size: xx-large;
+    white-space: nowrap;
+    margin: 8px 0;
+}
+
+.descModal {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.optionsBtn {
+    display: flex;
+    flex: auto;
+    align-items: end;
+    justify-content: center;
+    height: 50px;
+}

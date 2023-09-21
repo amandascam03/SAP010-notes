@@ -45,12 +45,14 @@ export default function NoteMaker() {
                     }}
                 ></button>
             </nav>
-            <input
+            <textarea
+                className="noteTitle"
                 type="text"
                 placeholder="Título"
                 onChange={(e) => setinputTitle(e.target.value)}
             />
-            <input
+            <textarea
+                className="noteContent"
                 type="text"
                 placeholder="Nota"
                 onChange={(e) => setInputNote(e.target.value)}
