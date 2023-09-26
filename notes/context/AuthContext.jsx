@@ -11,8 +11,6 @@ export default function AuthGoogleProvider({ children }) {
 
     const [user, setUser] = useState(null);
 
-
-
     useEffect(() => {
         const loadStorageAuth = () => {
             const sessionToken = sessionStorage.getItem("@AuthFirebase:token");
