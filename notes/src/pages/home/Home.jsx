@@ -75,6 +75,7 @@ export default function HomePage() {
                     description={modalContent.conteudo}
                     close={() => setModalIsOpen(false)}
                     deleteOption={() => deleteNote(modalContent.id)}
+                    idNote={modalContent.id}
                 />
             )}
             <button

@@ -1,12 +1,21 @@
 import { useState } from "react";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../lib/firebase-config";
 
-export function Modal({ title, description, close, deleteOption }) {
+export function Modal({ title, description, close, deleteOption, idNote }) {
     const [isEditing, setIsEditing] = useState(false);
+    const [editedTitle, setEditedTitle] = useState(title);
+    const [editedContent, setEditedContent] = useState(description);
 
-    function handleClickEdit() {
-        setIsEditing(true);
+    async function editNote(noteId, newTitle, newContent) {
+        const docRef = doc(db, "notes", noteId);
+        await updateDoc(docRef, {
+            titulo: newTitle,
+            conteudo: newContent,
+        })
+        location.reload();
     }
-
+    // test-hu1 test-hu2 test-hu3
     function handleClickDelete() {
         deleteOption();
         close();
@@ -18,8 +27,9 @@ export function Modal({ title, description, close, deleteOption }) {
                 <button className="returnBtn" onClick={close}></button>
                 {isEditing ? (
                     <>
-                        <textarea id="editTitleModal" defaultValue={title} />
-                        <textarea id="editContentModal" defaultValue={description} />
+                        <button className="saveBtn" onClick={() => editNote(idNote, editedTitle, editedContent)}></button>
+                        <textarea id="editTitleModal" defaultValue={title} onChange={(e) => setEditedTitle(e.target.value)} />
+                        <textarea id="editContentModal" defaultValue={description} onChange={(e) => setEditedContent(e.target.value)} />
                     </>
                 ) : (
                     <>
@@ -27,7 +37,7 @@ export function Modal({ title, description, close, deleteOption }) {
                         <p className="descModal">{description}</p>
                         <hr />
                 <div className="optionsBtn">
-                    <button onClick={handleClickEdit}>EDITAR</button>
+                    <button onClick={() => setIsEditing(true)}>EDITAR</button>
                     <button onClick={handleClickDelete}>EXCLUIR</button>
                 </div>
                     </>
