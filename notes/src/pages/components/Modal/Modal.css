@@ -34,7 +34,7 @@
 }
 
 hr {
-    margin-top: 50px;
+    margin-top: auto;
     height: 1px;
     border: none;
     background-color: black;
@@ -45,5 +45,5 @@ hr {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    flex: auto;
+    padding: 10px;
 }
