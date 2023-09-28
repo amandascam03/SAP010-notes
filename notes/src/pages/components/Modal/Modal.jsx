@@ -1,8 +1,16 @@
 import { useState } from "react";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase-config";
 
-export function Modal({ title, description, close, deleteOption, idNote }) {
+export function Modal({
+    title,
+    description,
+    close,
+    deleteOption,
+    idNote,
+    date,
+    time,
+}) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(title);
     const [editedContent, setEditedContent] = useState(description);
@@ -12,7 +20,8 @@ export function Modal({ title, description, close, deleteOption, idNote }) {
         await updateDoc(docRef, {
             titulo: newTitle,
             conteudo: newContent,
-        })
+            timestamp: serverTimestamp(),
+        });
         location.reload();
     }
     // test-hu1 test-hu2 test-hu3
@@ -27,19 +36,37 @@ export function Modal({ title, description, close, deleteOption, idNote }) {
                 <button className="returnBtn" onClick={close}></button>
                 {isEditing ? (
                     <>
-                        <button className="saveBtn" onClick={() => editNote(idNote, editedTitle, editedContent)}></button>
-                        <textarea id="editTitleModal" defaultValue={title} onChange={(e) => setEditedTitle(e.target.value)} />
-                        <textarea id="editContentModal" defaultValue={description} onChange={(e) => setEditedContent(e.target.value)} />
+                        <button
+                            className="saveBtn"
+                            onClick={() =>
+                                editNote(idNote, editedTitle, editedContent)
+                            }
+                        ></button>
+                        <textarea
+                            id="editTitleModal"
+                            defaultValue={title}
+                            onChange={(e) => setEditedTitle(e.target.value)}
+                        />
+                        <textarea
+                            id="editContentModal"
+                            defaultValue={description}
+                            onChange={(e) => setEditedContent(e.target.value)}
+                        />
                     </>
                 ) : (
                     <>
                         <h2 className="titleModal">{title}</h2>
                         <p className="descModal">{description}</p>
+                        <p>
+                            {time}, {date}
+                        </p>
                         <hr />
-                <div className="optionsBtn">
-                    <button onClick={() => setIsEditing(true)}>EDITAR</button>
-                    <button onClick={handleClickDelete}>EXCLUIR</button>
-                </div>
+                        <div className="optionsBtn">
+                            <button onClick={() => setIsEditing(true)}>
+                                EDITAR
+                            </button>
+                            <button onClick={handleClickDelete}>EXCLUIR</button>
+                        </div>
                     </>
                 )}
             </div>

@@ -1,7 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthGoogleContext } from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore";
+import {
+    collection,
+    deleteDoc,
+    doc,
+    getDocs,
+    query,
+    where,
+} from "firebase/firestore";
 import { auth, db } from "../../lib/firebase-config";
 import { Modal } from "../components/Modal/Modal";
 
@@ -76,6 +83,12 @@ export default function HomePage() {
                     close={() => setModalIsOpen(false)}
                     deleteOption={() => deleteNote(modalContent.id)}
                     idNote={modalContent.id}
+                    date={modalContent.timestamp
+                        .toDate()
+                        .toLocaleDateString("pt-BR", { dateStyle: "medium" })}
+                    time={modalContent.timestamp
+                        .toDate()
+                        .toLocaleTimeString("pt-BR", { timeStyle: "short" })}
                 />
             )}
             <button
