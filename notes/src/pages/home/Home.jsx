@@ -73,6 +73,9 @@ export default function HomePage() {
                     >
                         <h1>{note.titulo}</h1>
                         <p>{note.conteudo}</p>
+                        <span>{note.timestamp
+                        .toDate()
+                        .toLocaleDateString("pt-BR", { dateStyle: "medium" })}</span>
                     </div>
                 ))}
             </div>

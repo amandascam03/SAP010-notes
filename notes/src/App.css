@@ -6,10 +6,6 @@
     font-family: "Nunito", sans-serif;
 }
 
-*:focus {
-    outline: yellow;
-}
-
 /* css da tela de login */
 
 .LoginPage {
@@ -118,13 +114,15 @@ a {
 
 .note {
     display: flex;
-    align-items: center;
     justify-content: center;
     background-color: #ffee32;
     box-sizing: border-box;
     flex-direction: column;
     min-width: 600px;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .note > p {
@@ -133,6 +131,7 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: rgba(12, 12, 12, 0.50);
 }
 
 .addBtn {
@@ -141,7 +140,7 @@ a {
     align-self: flex-end;
     margin: 0 30px 30px 0;
     border-radius: 50%;
-    background: #ffd100;
+    background: #9E8200;
     border: none;
     background-image: url("./assets/Vector.png");
     background-repeat: no-repeat;
@@ -186,7 +185,7 @@ textarea {
 }
 
 .returnBtn,
-.saveBtn {
+.saveBtn, .deleteBtn, .editBtn {
     height: 40px;
     width: 40px;
     background-repeat: no-repeat;

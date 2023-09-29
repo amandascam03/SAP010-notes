@@ -62,10 +62,9 @@ export function Modal({
                         </p>
                         <hr />
                         <div className="optionsBtn">
-                            <button onClick={() => setIsEditing(true)}>
-                                EDITAR
+                            <button className="editBtn" onClick={() => setIsEditing(true)}>
                             </button>
-                            <button onClick={handleClickDelete}>EXCLUIR</button>
+                            <button className="deleteBtn" onClick={handleClickDelete}></button>
                         </div>
                     </>
                 )}

@@ -44,6 +44,14 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 35px;
     padding: 10px;
+}
+
+.editBtn {
+    background-image: url(./../../../assets/Edit.png);
+}
+
+.deleteBtn {
+    background-image: url("./../../../assets/Delete.png");
 }

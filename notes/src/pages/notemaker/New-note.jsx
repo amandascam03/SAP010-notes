@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../../lib/firebase-config";
 
 export default function NoteMaker() {
-    const [title, setTitle] = useState("Sem Título");
+    let [title, setTitle] = useState("Sem Título");
     const [inputTitle, setinputTitle] = useState("");
     const [inputNote, setInputNote] = useState("");
     const [newNote, setNewNote] = useState("Sem conteúdo");
@@ -12,6 +12,7 @@ export default function NoteMaker() {
     const userUid = auth.currentUser.uid;
 
     useEffect(() => {
+        setTitle("Sem título");
         setTitle(inputTitle);
         setNewNote(inputNote);
     }, [inputTitle, inputNote]);
@@ -22,6 +23,7 @@ export default function NoteMaker() {
                 titulo,
                 conteudo,
                 uid,
+                timestamp: serverTimestamp(),
             });
 
             console.log("Document written with ID: ", docRef.id);
@@ -39,7 +41,8 @@ export default function NoteMaker() {
                 ></button>
                 <button
                     className="saveBtn"
-                    onClick={() => {
+                    onClick={ async () => {
+                        title = inputTitle.trim() === "" ? "Sem Título" : inputTitle;
                         addNote(title, newNote, userUid);
                         navigate("/home");
                     }}
