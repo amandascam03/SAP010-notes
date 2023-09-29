@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase-config";
+import { Navbar } from "../Navbar/Navbar";
+import { TextBox } from "../TextBox/TextBox";
+import styles from "../Modal/Modal.module.css";
 
 export function Modal({
     title,
@@ -31,40 +34,45 @@ export function Modal({
     }
 
     return (
-        <div className="bgModal">
-            <div className="modal">
-                <button className="returnBtn" onClick={close}></button>
+        <div className={styles.bgModal}>
+            <div className={styles.modal}>
                 {isEditing ? (
                     <>
-                        <button
-                            className="saveBtn"
-                            onClick={() =>
+                        <Navbar
+                            returnClick={() => setIsEditing(false)}
+                            saveNoteClick={() =>
                                 editNote(idNote, editedTitle, editedContent)
                             }
-                        ></button>
-                        <textarea
-                            id="editTitleModal"
-                            defaultValue={title}
-                            onChange={(e) => setEditedTitle(e.target.value)}
                         />
-                        <textarea
-                            id="editContentModal"
-                            defaultValue={description}
-                            onChange={(e) => setEditedContent(e.target.value)}
+                        <TextBox
+                            onChangeTitle={(e) =>
+                                setEditedTitle(e.target.value)
+                            }
+                            defaultTitle={title}
+                            onChangeNote={(e) =>
+                                setEditedContent(e.target.value)
+                            }
+                            defaultContent={description}
                         />
                     </>
                 ) : (
                     <>
-                        <h2 className="titleModal">{title}</h2>
-                        <p className="descModal">{description}</p>
+                        <button className={styles.returnBtn} onClick={close}></button>
+                        <h2 className={styles.titleModal}>{title}</h2>
+                        <p className={styles.descModal}>{description}</p>
                         <p>
                             {time}, {date}
                         </p>
                         <hr />
-                        <div className="optionsBtn">
-                            <button className="editBtn" onClick={() => setIsEditing(true)}>
-                            </button>
-                            <button className="deleteBtn" onClick={handleClickDelete}></button>
+                        <div className={styles.optionsBtn}>
+                            <button
+                                className={styles.editBtn}
+                                onClick={() => setIsEditing(true)}
+                            ></button>
+                            <button
+                                className={styles.deleteBtn}
+                                onClick={handleClickDelete}
+                            ></button>
                         </div>
                     </>
                 )}

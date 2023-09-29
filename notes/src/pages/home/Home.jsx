@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../../lib/firebase-config";
 import { Modal } from "../components/Modal/Modal";
+import Note from "../components/Note/Note";
 
 export default function HomePage() {
     const { user, signOut } = useContext(AuthGoogleContext);
@@ -63,20 +64,20 @@ export default function HomePage() {
             </header>
             <div className="notes">
                 {notes.map((note) => (
-                    <div
+                    <Note
                         key={note.id}
-                        className="note"
-                        onClick={() => {
+                        title={note.titulo}
+                        content={note.conteudo}
+                        timestamp={note.timestamp
+                            .toDate()
+                            .toLocaleDateString("pt-BR", {
+                                dateStyle: "medium",
+                            })}
+                        openModalClick={() => {
                             setModalIsOpen(true);
                             setModalContent(note);
                         }}
-                    >
-                        <h1>{note.titulo}</h1>
-                        <p>{note.conteudo}</p>
-                        <span>{note.timestamp
-                        .toDate()
-                        .toLocaleDateString("pt-BR", { dateStyle: "medium" })}</span>
-                    </div>
+                    />
                 ))}
             </div>
             {modalIsOpen && (

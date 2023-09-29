@@ -48,10 +48,24 @@ hr {
     padding: 10px;
 }
 
+.returnBtn {
+    background-image: url(./../../../assets/Back-Arrow.png);
+}
+
 .editBtn {
     background-image: url(./../../../assets/Edit.png);
 }
 
 .deleteBtn {
     background-image: url("./../../../assets/Delete.png");
+}
+
+.returnBtn,.editBtn, .deleteBtn {
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

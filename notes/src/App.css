@@ -6,7 +6,7 @@
     font-family: "Nunito", sans-serif;
 }
 
-/* css da tela de login */
+/* css da página de login */
 
 .LoginPage {
     background: #202020;
@@ -69,10 +69,9 @@
 a {
     color: #ffff;
     font-weight: 400;
-    position: absolute;
 }
 
-/* css da home */
+/* css da página home */
 
 .HomePage {
     min-height: 100vh;
@@ -112,28 +111,6 @@ a {
     margin-bottom: 20px;
 }
 
-.note {
-    display: flex;
-    justify-content: center;
-    background-color: #ffee32;
-    box-sizing: border-box;
-    flex-direction: column;
-    min-width: 600px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.note > p {
-    font-size: larger;
-    max-width: 30ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: rgba(12, 12, 12, 0.50);
-}
-
 .addBtn {
     height: 70px;
     width: 70px;
@@ -150,47 +127,11 @@ a {
     bottom: 0;
 }
 
-/* css da nota */
+/* css das notas */
 
 .NotePage {
     display: flex;
     flex-direction: column;
     gap: 80px;
     min-height: 100vh;
-}
-
-textarea {
-    max-width: 100vw;
-    font-size: 50px;
-    border: none;
-    padding-left: 20px;
-}
-
-.noteContent {
-    flex: auto;
-}
-
-.navNote {
-    display: flex;
-    justify-content: space-between;
-    padding: 43px 20px;
-}
-
-.returnBtn {
-    background-image: url(./assets/Back-Arrow.png);
-}
-
-.saveBtn {
-    background-image: url(./assets/Check.png);
-}
-
-.returnBtn,
-.saveBtn, .deleteBtn, .editBtn {
-    height: 40px;
-    width: 40px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
 }
