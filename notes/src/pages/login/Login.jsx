@@ -19,7 +19,7 @@ export default function LoginPage() {
                     <p>Tome suas notas de uma forma simples e objetiva</p>
                 </header>
                 <div className="imagem">
-                    <img src={gif} style={{ height: 550 }} />
+                    <img src={gif} />
                 </div>
                 <form className="formulario">
                     <button className="googleBtn" onClick={signInClick}>

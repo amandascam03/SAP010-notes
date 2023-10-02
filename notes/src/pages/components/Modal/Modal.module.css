@@ -17,14 +17,14 @@
     left: 50%;
     background-color: white;
     height: 600px;
-    min-width: 400px;
+    width: 500px;
     padding: 1rem;
     transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
 
 .titleModal {
     font-size: xx-large;
-    white-space: nowrap;
     margin: 8px 0;
 }
 
@@ -68,4 +68,32 @@ hr {
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .modal {
+        width: 250px;
+        height: 460px;
+    }
+
+    .returnBtn,.editBtn, .deleteBtn {
+        height: 30px;
+        width: 30px;
+    }
+
+    .titleModal {
+        font-size: x-large;
+    }
+
+    .descModal {
+        font-size: larger;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .modal {
+        height: 500px;
+        width: 400px;
+    }
 }

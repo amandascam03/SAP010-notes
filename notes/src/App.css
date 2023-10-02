@@ -6,11 +6,24 @@
     font-family: "Nunito", sans-serif;
 }
 
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 10px;
+    border: 1px solid #ffff;
+}
+
 /* css da página de login */
 
 .LoginPage {
     background: #202020;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .LoginPage h1 {
@@ -25,6 +38,7 @@
 .Login-header p {
     font-weight: 200;
     color: #ffff;
+    text-align: center;
 }
 
 .formulario {
@@ -108,7 +122,8 @@ a {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 20px;
+    max-width: -webkit-fill-available;
+    margin: 0 50px 20px 50px;
 }
 
 .addBtn {
@@ -134,4 +149,33 @@ a {
     flex-direction: column;
     gap: 80px;
     min-height: 100vh;
+    padding: 20px;
+}
+
+@media (max-width: 480px) {
+
+    img {
+        width: 100vw;
+    }
+
+    .UserNotes {
+        font-size: x-large;
+    }
+
+    .logoutBtn {
+        height: 32px;
+        width: 32px;
+        background-size: cover;
+    }
+
+    .notes {
+        margin: 20px 30px;
+    }
+
+    .addBtn {
+        height: 60px;
+        width: 60px;
+        background-position: center;
+    }
+
 }

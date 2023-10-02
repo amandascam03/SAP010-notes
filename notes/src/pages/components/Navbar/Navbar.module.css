@@ -1,7 +1,7 @@
 .navNote {
     display: flex;
     justify-content: space-between;
-    padding: 43px 20px;
+    padding: 0;
 }
 
 .returnBtn {
@@ -12,7 +12,8 @@
     background-image: url(../../../assets/Check.png);
 }
 
-.returnBtn, .saveBtn {
+.returnBtn,
+.saveBtn {
     height: 40px;
     width: 40px;
     background-repeat: no-repeat;
@@ -20,4 +21,13 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+@media (max-width: 480px) {
+
+    .returnBtn,
+    .saveBtn {
+        height: 30px;
+        width: 30px;
+    }
 }
