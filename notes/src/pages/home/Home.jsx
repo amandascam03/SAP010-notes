@@ -19,7 +19,7 @@ export default function HomePage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modalContent, setModalContent] = useState({});
     const navigate = useNavigate();
-    const userSigned = JSON.parse(user);
+    const userSigned = user ? JSON.parse(user) : null;
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (authObj) => {
@@ -53,10 +53,23 @@ export default function HomePage() {
         setNotes(newNotes);
     }
 
+    function formatTimestamp(timestamp) {
+        if (!timestamp) return "";
+        const date = timestamp.toDate();
+        const formattedDate = date.toLocaleDateString("pt-BR", {
+            dateStyle: "medium",
+        });
+        const formattedTime = date.toLocaleTimeString("pt-BR", {
+            timeStyle: "short",
+        });
+
+        return `${formattedTime}, ${formattedDate}`
+    }
+
     return (
         <div className="HomePage">
             <header className="Home-header">
-                <h1 className="UserNotes">{userSigned.displayName} Notes</h1>
+                <h1 className="UserNotes">{userSigned?.displayName ?? "User"} Notes</h1>
                 <button
                     className="logoutBtn"
                     onClick={() => signOut()}
@@ -68,11 +81,7 @@ export default function HomePage() {
                         key={note.id}
                         title={note.titulo}
                         content={note.conteudo}
-                        timestamp={note.timestamp
-                            .toDate()
-                            .toLocaleDateString("pt-BR", {
-                                dateStyle: "medium",
-                            })}
+                        timestamp={formatTimestamp(note.timestamp)}
                         openModalClick={() => {
                             setModalIsOpen(true);
                             setModalContent(note);

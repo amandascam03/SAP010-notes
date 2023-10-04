@@ -27,14 +27,10 @@ export default function AuthGoogleProvider({ children }) {
         .then((result) => {
           const credential = GoogleAuthProvider.credentialFromResult(result);
           const token = credential.accessToken;
-          const user = JSON.stringify(result.user);
+          const user = result.user ? JSON.stringify(result.user) : null;
           setUser(user);
           sessionStorage.setItem("@AuthFirebase:token", token);
           sessionStorage.setItem("@AuthFirebase:user", user);
-        //   const user = result.user;
-        //   setUser(JSON.stringify(user));
-        //   sessionStorage.setItem("@AuthFirebase:token", token);
-        //   sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
         }).catch((error) => {
           const errorCode = error.code;
           console.log(errorCode);

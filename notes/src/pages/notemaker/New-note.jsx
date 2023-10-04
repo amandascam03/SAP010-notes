@@ -11,7 +11,6 @@ export default function NoteMaker() {
     const [inputNote, setInputNote] = useState("");
     const [newNote, setNewNote] = useState("");
     const navigate = useNavigate();
-    const userUid = auth.currentUser.uid;
 
     useEffect(() => {
         setTitle(inputTitle);
@@ -19,30 +18,28 @@ export default function NoteMaker() {
     }, [inputTitle, inputNote]);
 
     async function addNote(titulo, conteudo, uid) {
-        try {
             const docRef = await addDoc(collection(db, "notes"), {
                 titulo,
                 conteudo,
                 uid,
                 timestamp: serverTimestamp(),
             });
-            location.reload();
-            console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-            console.error("Error adding document: ", e);
-        }
+            return docRef;
+    }
+
+    async function handleSaveNoteClick() {
+        console.log("handleSaveNoteClick chamada");
+        const userUid = auth.currentUser ? auth.currentUser.uid : null;
+            title = inputTitle.trim() === "" ? "Sem Título" : inputTitle;
+            await addNote(title, newNote, userUid);
+            navigate("/home");
     }
 
     return (
-        <div className="NotePage">
+        <div className="NotePage" data-testid="Note">
             <Navbar
                 returnClick={() => navigate("/home")}
-                saveNoteClick={async () => {
-                    title =
-                        inputTitle.trim() === "" ? "Sem Título" : inputTitle;
-                    addNote(title, newNote, userUid);
-                    navigate("/home");
-                }}
+                saveNoteClick={handleSaveNoteClick}
             />
             <TextBox
                 onChangeTitle={(e) => setinputTitle(e.target.value)}
