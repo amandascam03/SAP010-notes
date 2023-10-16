@@ -18,6 +18,7 @@ export default function NoteMaker() {
     }, [inputTitle, inputNote]);
 
     async function addNote(titulo, conteudo, uid) {
+        console.log("addNote chamada");
             const docRef = await addDoc(collection(db, "notes"), {
                 titulo,
                 conteudo,

@@ -96,12 +96,7 @@ export default function HomePage() {
                     close={() => setModalIsOpen(false)}
                     deleteOption={() => deleteNote(modalContent.id)}
                     idNote={modalContent.id}
-                    date={modalContent.timestamp
-                        .toDate()
-                        .toLocaleDateString("pt-BR", { dateStyle: "medium" })}
-                    time={modalContent.timestamp
-                        .toDate()
-                        .toLocaleTimeString("pt-BR", { timeStyle: "short" })}
+                    timestamp={formatTimestamp(modalContent.timestamp)}
                 />
             )}
             <button

@@ -4,17 +4,21 @@ import HomePage from '../pages/home/Home'
 import { MemoryRouter } from 'react-router-dom'
 import { AuthGoogleContext } from '../../context/AuthContext'
 
-const mockAuth = {
-    currentUser: {
-        uid: '9f8dcn',
-        displayName: 'Amanda',
-    },
-};
+jest.mock('firebase/firestore', () => ({
+    collection: jest.fn(),
+    query: jest.fn(),
+    where: jest.fn(),
+    getDocs: jest.fn(),
+}));
+
+jest.mock('firebase/auth', () => ({
+    currentUser: { uid: 'user123' },
+}))
 
 it("render home", () => {
     const { getByText } = render(
        <MemoryRouter>
-        <AuthGoogleContext.Provider value={mockAuth}>
+        <AuthGoogleContext.Provider>
             <HomePage />
         </AuthGoogleContext.Provider>
        </MemoryRouter>

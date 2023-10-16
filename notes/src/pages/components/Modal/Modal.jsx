@@ -11,8 +11,7 @@ export function Modal({
     close,
     deleteOption,
     idNote,
-    date,
-    time,
+    timestamp,
 }) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(title);
@@ -27,7 +26,7 @@ export function Modal({
         });
         location.reload();
     }
-    // test-hu1 test-hu2 test-hu3
+
     function handleClickDelete() {
         deleteOption();
         close();
@@ -61,7 +60,7 @@ export function Modal({
                         <h2 className={styles.titleModal}>{title}</h2>
                         <p className={styles.descModal}>{description}</p>
                         <p>
-                            {time}, {date}
+                            {timestamp}
                         </p>
                         <hr />
                         <div className={styles.optionsBtn}>
