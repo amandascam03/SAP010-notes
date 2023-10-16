@@ -5,15 +5,16 @@ import { AuthGoogleContext } from "../../context/AuthContext";
 import '@testing-library/jest-dom'
 import { fireEvent, waitFor } from "@testing-library/react";
 import { addDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
 
 jest.mock("firebase/firestore")
-jest.mock("react-router-dom", () => {
-    
-    return ({
-    ...jest.requireActual("react-router-dom"),
-    useNavigate: (fn) => (fn)
-})})
+
+const mockedUsedNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+   ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockedUsedNavigate,
+}));
+
 
 const mockAuth = {
     currentUser: {
@@ -39,10 +40,10 @@ it("render notemaker", () => {
 it("save note click", async () => {
 
     // const addNote = jest.fn();
-    const navigate = useNavigate();
-    // useNavigate.mockImplementation(() =>({
-    //     navigate: navigate
-    // }))
+    // const navigate = jest.fn();
+    /*useNavigate.mockImplementation(() =>({
+        navigate: navigate
+    }))*/
 
     const { getByTestId } = render(
         <MemoryRouter>
@@ -56,6 +57,6 @@ it("save note click", async () => {
 
     await waitFor(() => {
         expect(addDoc).toHaveBeenCalled();
-        expect(navigate).toHaveBeenCalledWith("/home");
+        expect(mockedUsedNavigate).toHaveBeenCalledWith("/home");
     })
 });
