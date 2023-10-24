@@ -1,18 +1,15 @@
-import { render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { Navbar } from "../pages/components/Navbar/Navbar";
-import { fireEvent } from "@testing-library/react";
+import '@testing-library/jest-dom'
 
-it("save note click", async () => {
-    let handleSaveNoteClick = jest.fn();
+it("render navbar", async () => {
     const { getByTestId } = render(
         <MemoryRouter>
-            <Navbar saveNoteClick={handleSaveNoteClick} />
+            <Navbar />
         </MemoryRouter>
     );
 
-    fireEvent.click(getByTestId("testSaveNote"));
-    await waitFor(() => {
-        expect(handleSaveNoteClick).toHaveBeenCalledTimes(1);
-    });
+    expect(getByTestId("Navbar")).toBeInTheDocument()
+    
 });

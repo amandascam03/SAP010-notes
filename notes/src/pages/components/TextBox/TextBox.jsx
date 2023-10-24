@@ -7,7 +7,7 @@ export function TextBox({
     defaultContent,
 }) {
     return (
-        <div className={styles.textBox}>
+        <div className={styles.textBox} data-testid="Textbox">
             <textarea
                 type="text"
                 placeholder="Título"

@@ -12,7 +12,7 @@ jest.mock('firebase/firestore', () => ({
 }));
 
 jest.mock('firebase/auth', () => ({
-    currentUser: { uid: 'user123' },
+    auth: { currentUser: 'amandasca' },
 }))
 
 it("render home", () => {

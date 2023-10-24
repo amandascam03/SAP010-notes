@@ -3,7 +3,7 @@ import styles from "../Navbar/Navbar.module.css";
 export function Navbar({ returnClick, saveNoteClick }) {
 
     return (
-        <div data-testid="navbar">
+        <div data-testid="Navbar">
             <nav className={styles.navNote}>
                 <button
                     className={styles.returnBtn}

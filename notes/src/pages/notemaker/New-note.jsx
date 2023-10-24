@@ -6,34 +6,33 @@ import { Navbar } from "../components/Navbar/Navbar";
 import { TextBox } from "../components/TextBox/TextBox";
 
 export default function NoteMaker() {
-    let [title, setTitle] = useState("");
+    const [title, setTitle] = useState("");
     const [inputTitle, setinputTitle] = useState("");
     const [inputNote, setInputNote] = useState("");
     const [newNote, setNewNote] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
-        setTitle(inputTitle);
+        const updatedTitle = inputTitle.trim() === "" ? "Sem Título" : inputTitle;
+        setTitle(updatedTitle);
         setNewNote(inputNote);
     }, [inputTitle, inputNote]);
 
-    async function addNote(titulo, conteudo, uid) {
+    async function addNote(titulo, conteudo) {
         console.log("addNote chamada");
-            const docRef = await addDoc(collection(db, "notes"), {
-                titulo,
-                conteudo,
-                uid,
-                timestamp: serverTimestamp(),
-            });
-            return docRef;
+        const docRef = await addDoc(collection(db, "notes"), {
+            titulo,
+            conteudo,
+            uid: auth.currentUser.uid,
+            timestamp: serverTimestamp(),
+        });
+        return docRef;
     }
 
     async function handleSaveNoteClick() {
         console.log("handleSaveNoteClick chamada");
-        const userUid = auth.currentUser ? auth.currentUser.uid : null;
-            title = inputTitle.trim() === "" ? "Sem Título" : inputTitle;
-            await addNote(title, newNote, userUid);
-            navigate("/home");
+        await addNote(title, newNote);
+        navigate("/home");
     }
 
     return (
