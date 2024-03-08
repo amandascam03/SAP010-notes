@@ -19,7 +19,6 @@ export default function NoteMaker() {
     }, [inputTitle, inputNote]);
 
     async function addNote(titulo, conteudo) {
-        console.log("addNote chamada");
         const docRef = await addDoc(collection(db, "notes"), {
             titulo,
             conteudo,
@@ -30,7 +29,6 @@ export default function NoteMaker() {
     }
 
     async function handleSaveNoteClick() {
-        console.log("handleSaveNoteClick chamada");
         await addNote(title, newNote);
         navigate("/home");
     }

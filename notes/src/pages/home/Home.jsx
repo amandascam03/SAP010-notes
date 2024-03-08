@@ -23,28 +23,40 @@ export default function HomePage() {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (authObj) => {
-            unsubscribe();
             if (authObj) {
                 const q = query(
                     collection(db, "notes"),
                     where("uid", "==", auth.currentUser.uid)
                 );
                 const querySnapshot = await getDocs(q);
-                if (!querySnapshot.docs.length) {
-                    return { querySnapshot, array: [] };
+                if (querySnapshot && querySnapshot.docs && querySnapshot.docs.length) {
+                    const notesData = querySnapshot.docs.map((doc) => {
+                        const note = doc.data();
+                        return {
+                            ...note,
+                            id: doc.id,
+                            uid: auth.currentUser.uid,
+                        };
+                    });
+                    console.log(notesData);
+
+                    setNotes(notesData);
                 }
-                const notesData = querySnapshot.docs.map((doc) => {
-                    const note = doc.data();
-                    return { ...note, id: doc.id, uid: auth.currentUser.uid };
-                });
 
-                console.log(notesData);
+                return { querySnapshot, array: [] };
 
-                setNotes(notesData);
             } else {
-                console.log("usuário não logado");
+                signOut();
             }
+
         });
+
+        return () => {
+            unsubscribe();
+        };
+        // NOTE: Run effect once on component mount, please
+        // recheck dependencies if effect is updated.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     async function deleteNote(noteId) {
@@ -63,13 +75,15 @@ export default function HomePage() {
             timeStyle: "short",
         });
 
-        return `${formattedTime}, ${formattedDate}`
+        return `${formattedTime}, ${formattedDate}`;
     }
 
     return (
         <div className="HomePage">
             <header className="Home-header">
-                <h1 className="UserNotes">{userSigned?.displayName ?? "User"} Notes</h1>
+                <h1 className="UserNotes">
+                    {userSigned?.displayName ?? "User"} Notes
+                </h1>
                 <button
                     className="logoutBtn"
                     onClick={() => signOut()}
@@ -94,6 +108,7 @@ export default function HomePage() {
                     title={modalContent.titulo}
                     description={modalContent.conteudo}
                     close={() => setModalIsOpen(false)}
+                    updateNotes={notes}
                     deleteOption={() => deleteNote(modalContent.id)}
                     idNote={modalContent.id}
                     timestamp={formatTimestamp(modalContent.timestamp)}

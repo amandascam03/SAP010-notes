@@ -68,7 +68,7 @@ export function Modal({
                                 className={styles.editBtn}
                                 onClick={() => setIsEditing(true)}
                             ></button>
-                            <button
+                            <button data-testid="delete-btn"
                                 className={styles.deleteBtn}
                                 onClick={handleClickDelete}
                             ></button>
