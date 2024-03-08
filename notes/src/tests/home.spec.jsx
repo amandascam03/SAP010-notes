@@ -91,9 +91,6 @@ it("render notes", async () => {
     const userSigned = { displayName: "Outro", uid: "aw69hf" };
 
     setupAuthMock(userSigned);
-    // componente renderizado uma vez
-
-    // mock de notas feito
     const mockNote1 = {
         id: 1,
         data: jest.fn().mockReturnValue({

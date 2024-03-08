@@ -5,7 +5,7 @@ import {
     collection,
     deleteDoc,
     doc,
-    getDocs,
+    onSnapshot,
     query,
     where,
 } from "firebase/firestore";
@@ -28,9 +28,8 @@ export default function HomePage() {
                     collection(db, "notes"),
                     where("uid", "==", auth.currentUser.uid)
                 );
-                const querySnapshot = await getDocs(q);
-                if (querySnapshot && querySnapshot.docs && querySnapshot.docs.length) {
-                    const notesData = querySnapshot.docs.map((doc) => {
+                const unsubscribeSnapshot = onSnapshot(q, (snapshot) => {
+                    const notesData = snapshot.docs.map((doc) => {
                         const note = doc.data();
                         return {
                             ...note,
@@ -41,9 +40,9 @@ export default function HomePage() {
                     console.log(notesData);
 
                     setNotes(notesData);
-                }
+                })
 
-                return { querySnapshot, array: [] };
+                return unsubscribeSnapshot;
 
             } else {
                 signOut();

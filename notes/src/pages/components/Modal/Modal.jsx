@@ -24,11 +24,15 @@ export function Modal({
             conteudo: newContent,
             timestamp: serverTimestamp(),
         });
-        location.reload();
     }
 
     function handleClickDelete() {
         deleteOption();
+        close();
+    }
+
+    function handleClickEdit() {
+        editNote(idNote, editedTitle, editedContent);
         close();
     }
 
@@ -40,7 +44,7 @@ export function Modal({
                         <Navbar
                             returnClick={() => setIsEditing(false)}
                             saveNoteClick={() =>
-                                editNote(idNote, editedTitle, editedContent)
+                                handleClickEdit()
                             }
                         />
                         <TextBox
