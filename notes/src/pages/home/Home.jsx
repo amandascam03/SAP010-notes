@@ -40,14 +40,12 @@ export default function HomePage() {
                     console.log(notesData);
 
                     setNotes(notesData);
-                })
+                });
 
                 return unsubscribeSnapshot;
-
             } else {
                 signOut();
             }
-
         });
 
         return () => {
@@ -121,3 +119,4 @@ export default function HomePage() {
         </div>
     );
 }
+

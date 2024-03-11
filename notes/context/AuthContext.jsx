@@ -8,7 +8,6 @@ const provider = new GoogleAuthProvider();
 export const AuthGoogleContext = createContext({});
 
 export default function AuthGoogleProvider({ children }) {
-
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -20,33 +19,37 @@ export default function AuthGoogleProvider({ children }) {
             }
         };
         loadStorageAuth();
-    }, [])
+    }, []);
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider)
-        .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          const user = result.user ? JSON.stringify(result.user) : null;
-          setUser(user);
-          sessionStorage.setItem("@AuthFirebase:token", token);
-          sessionStorage.setItem("@AuthFirebase:user", user);
-        }).catch((error) => {
-          const errorCode = error.code;
-          console.log(errorCode);
-        });
+            .then((result) => {
+                const credential =
+                    GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user ? JSON.stringify(result.user) : null;
+                setUser(user);
+                sessionStorage.setItem("@AuthFirebase:token", token);
+                sessionStorage.setItem("@AuthFirebase:user", user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                console.log(errorCode);
+            });
     };
 
     function signOut() {
         sessionStorage.clear();
         setUser(null);
 
-        return <Navigate to="/" />
+        return <Navigate to="/" />;
     }
 
     return (
-        <AuthGoogleContext.Provider value={{ signInWithGoogle, signed: !!user, user, signOut }}>
+        <AuthGoogleContext.Provider
+            value={{ signInWithGoogle, signed: !!user, user, signOut }}
+        >
             {children}
         </AuthGoogleContext.Provider>
-    )
+    );
 }

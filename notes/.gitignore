@@ -25,3 +25,4 @@ dist-ssr
 
 # Ignore test-related files
 coverage/
+.vercel

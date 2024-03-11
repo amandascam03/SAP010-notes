@@ -43,9 +43,7 @@ export function Modal({
                     <>
                         <Navbar
                             returnClick={() => setIsEditing(false)}
-                            saveNoteClick={() =>
-                                handleClickEdit()
-                            }
+                            saveNoteClick={() => handleClickEdit()}
                         />
                         <TextBox
                             onChangeTitle={(e) =>
@@ -60,19 +58,21 @@ export function Modal({
                     </>
                 ) : (
                     <>
-                        <button className={styles.returnBtn} onClick={close}></button>
+                        <button
+                            className={styles.returnBtn}
+                            onClick={close}
+                        ></button>
                         <h2 className={styles.titleModal}>{title}</h2>
                         <p className={styles.descModal}>{description}</p>
-                        <p>
-                            {timestamp}
-                        </p>
+                        <p>{timestamp}</p>
                         <hr />
                         <div className={styles.optionsBtn}>
                             <button
                                 className={styles.editBtn}
                                 onClick={() => setIsEditing(true)}
                             ></button>
-                            <button data-testid="delete-btn"
+                            <button
+                                data-testid="delete-btn"
                                 className={styles.deleteBtn}
                                 onClick={handleClickDelete}
                             ></button>
@@ -83,3 +83,4 @@ export function Modal({
         </div>
     );
 }
+

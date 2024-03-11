@@ -32,5 +32,6 @@ export default function LoginPage() {
             </div>
         );
     }
-        return <Navigate to="/home" />;
+    return <Navigate to="/home" />;
 }
+
